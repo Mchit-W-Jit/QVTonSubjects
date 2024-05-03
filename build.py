@@ -29,10 +29,8 @@ def main():
   parser.add_argument("-r", "--reciter", help="Quran reciter name", required=False)
   parser.add_argument("-sn", "--surah_number", type=int, help="Surah number", required=False)
   args = parser.parse_args()
-
   # Call the conversion function with user-provided arguments
   convert_to_mp3(args.input_file, args.output_file, args.bitrate, args.reciter, args.surah_number)
-
   print(f"Successfully converted {args.input_file} to {args.output_file} 
         with bitrate {args.bitrate} kbps")
   if args.reciter:
