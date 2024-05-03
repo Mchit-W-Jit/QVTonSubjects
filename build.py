@@ -1,3 +1,5 @@
+"""Module generate mp3 files from audacity."""
+
 #!/usr/bin/python3
 
 import argparse
@@ -15,11 +17,11 @@ def convert_to_mp3(input_file, output_file, bitrate=192, reciter=None,
       reciter (str, optional): Quran reciter name.
       surah_number (int, optional): Surah number in the Quran.
   """
-  command = ["ffmpeg", "-i", input_file, "-vn", "-acodec", "libmp3lame", "-b:a", 
-             str(bitrate) + "k", output_file]
+  command = ["ffmpeg", "-i", input_file, "-vn", "-acodec", "libmp3lame", "-b:a", str(bitrate) + "k", output_file]
   subprocess.run(command, check=True)
 
 def main():
+  """Main function."""
   # Parse user arguments
   parser = argparse.ArgumentParser(description="Convert audio file to MP3 (Quran)")
   parser.add_argument("input_file", help="Path to the input audio file")
