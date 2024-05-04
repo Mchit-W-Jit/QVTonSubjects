@@ -26,7 +26,7 @@ def main():
   parser = argparse.ArgumentParser(description="Convert audio file to MP3 (Quran)")
   parser.add_argument("input_file", help="Path to the input audio file")
   parser.add_argument("output_file", help="Path to the output MP3 file")
-  parser.add_argument("-b", "--bitrate", type=int, default=192, 
+  parser.add_argument("-b", "--bitrate", type=int, default=192,
                       help="MP3 bitrate (default: 192 kbps)")
   parser.add_argument("-r", "--reciter", help="Quran reciter name", required=False)
   parser.add_argument("-sn", "--surah_number", type=int, help="Surah number", required=False)
