@@ -16,38 +16,38 @@ def create_issue(sura_name, section_number, riwaya, label):
     ##Implementaitons
     title = f"[Impl.] {sura_name}_{section_number_str}_Audacity"
     body = f"Please create the audio for Surah {sura_name}, Section {section_number}."
-    command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
+    #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},audacity,audio\" -a @me && sleep 6")
     #subprocess.run(command, check=True)
 
     title = f"[Impl.] {sura_name}_{section_number_str}_Thumbnail"
     body = f"Please create the Thumbnail for Surah {sura_name}, Section {section_number}."
-    command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
+    #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},thumbnail\" -a @me && sleep 6")
     #subprocess.run(command, check=True)
 
     title = f"[Impl.] {sura_name}_{section_number_str}_Text"
     body = f"Please create the Text for Surah {sura_name}, Section {section_number}."
-    command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
+    #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},text\" -a @me && sleep 6")
     #subprocess.run(command, check=True)
 
     ##Reviews
     title = f"[Review] {sura_name}_{section_number_str}_Audacity"
     body = f"Please review the audio for Surah {sura_name}, Section {section_number}."
-    command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
+    #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},audacity,audio\" -a @me && sleep 6")
     #subprocess.run(command, check=True)
 
     title = f"[Review] {sura_name}_{section_number_str}_Thumbnail"
     body = f"Please review the Thumbnail for Surah {sura_name}, Section {section_number}."
-    command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
+    #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},thumbnail\" -a @me && sleep 6")
     #subprocess.run(command, check=True)
 
     title = f"[Review] {sura_name}_{section_number_str}_Text"
     body = f"Please review the Text for Surah {sura_name}, Section {section_number}."
-    command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
+    #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me"]
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},text\" -a @me && sleep 6")
     #subprocess.run(command, check=True)
 
