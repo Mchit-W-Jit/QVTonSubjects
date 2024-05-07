@@ -57,7 +57,7 @@ def create_issue(sura_name, section_number, riwaya, label, milestone):
     body = f"Please review the Thumbnail for [Surah {sura_name}, Section {section_number}]({url}) ![{sura_name}_{section_number_str}_Screenshot]({url}/{section_number_str}.jpg?raw=true)"
     #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me -m \"{milestone}\""]
     #subprocess.run(command, check=True)
-    print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},thumbnail,screenshot\" -a @me -m \"{milestone}\" ; sleep 25")
+    print(f"gh issue create -t \"{title}\" -b \"{body}\" \\\n-l \"{label},{riwaya},thumbnail,screenshot\" -a @me -m \"{milestone}\" ; sleep 25")
 
     title = f"[Review] {sura_name}_{section_number_str}_Text"
     body = f"Please review the Text for [Surah {sura_name}, Section {section_number}]({url})"
