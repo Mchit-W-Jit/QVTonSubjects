@@ -15,10 +15,6 @@ def create_issue(sura_name, section_number, riwaya, label, milestone):
     section_number (int): Section number within the Surah.
     """
 
-
-# ![{sura_name}_{section_number_str}_Screenshot]({url}/{section_number_str}.jpg?raw=true)
-
-
     # Format section number with leading zeros for 3 digits
     section_number_str = f"{section_number:03d}"
     # url to working directory for a specific task
@@ -54,7 +50,7 @@ def create_issue(sura_name, section_number, riwaya, label, milestone):
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},audacity,audio\" -a @me -m \"{milestone}\" ; sleep 25")
 
     title = f"[Review] {sura_name}_{section_number_str}_Screenshot"
-    body = f"Please review the Thumbnail for [Surah {sura_name}, Section {section_number}]({url}) ![{sura_name}_{section_number_str}_Screenshot]({url}/{section_number_str}.jpg?raw=true)"
+    body = f"Please review the Thumbnail for [Surah {sura_name}, Section {section_number}]({url}) [{sura_name}_{section_number_str}_Screenshot]({url}/{section_number_str}.jpg?raw=true)"
     #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me -m \"{milestone}\""]
     #subprocess.run(command, check=True)
     print(f"gh issue create -t \"{title}\" -b \"{body}\" \\\n-l \"{label},{riwaya},thumbnail,screenshot\" -a @me -m \"{milestone}\" ; sleep 25")
