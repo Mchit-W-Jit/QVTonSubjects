@@ -161,3 +161,9 @@ cython_debug/
 
 #Helpers
 helper.*
+
+#Audio files
+*.wav
+*.mp3
+*.ogg
+*eff*.au
