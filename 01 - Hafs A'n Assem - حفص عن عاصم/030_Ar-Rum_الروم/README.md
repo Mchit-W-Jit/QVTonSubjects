@@ -6,4 +6,3 @@ You can listen to and download the working file for [030_Ar-Rum_الروم](http
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/030.mp3"></audio>
-

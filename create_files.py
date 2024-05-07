@@ -33,7 +33,6 @@ You can listen to and download the working file for [{surah_name}]({base_url}/{s
 **Copyright mp3Quran**
 
 <audio controls src="{base_url}/{surah_name[:3]}.mp3"></audio>
-
 """
     #print (readme)
     #Creating README for each Surah

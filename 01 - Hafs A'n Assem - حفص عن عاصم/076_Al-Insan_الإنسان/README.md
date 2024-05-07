@@ -6,4 +6,3 @@ You can listen to and download the working file for [076_Al-Insan_الإنسان
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/076.mp3"></audio>
-

@@ -6,4 +6,3 @@ You can listen to and download the working file for [041_Fussilat_فصلت](http
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/041.mp3"></audio>
-

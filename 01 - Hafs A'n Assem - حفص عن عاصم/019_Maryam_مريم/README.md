@@ -6,4 +6,3 @@ You can listen to and download the working file for [019_Maryam_مريم](https:
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/019.mp3"></audio>
-

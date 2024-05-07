@@ -6,4 +6,3 @@ You can listen to and download the working file for [064_At-Taghabun_التغا�
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/064.mp3"></audio>
-

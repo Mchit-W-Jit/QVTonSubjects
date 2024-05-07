@@ -6,4 +6,3 @@ You can listen to and download the working file for [088_Al-Ghashiyah_الغاش
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/088.mp3"></audio>
-

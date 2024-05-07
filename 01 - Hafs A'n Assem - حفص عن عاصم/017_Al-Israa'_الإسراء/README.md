@@ -6,4 +6,3 @@ You can listen to and download the working file for [017_Al-Israa'_الإسرا�
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/017.mp3"></audio>
-

@@ -6,4 +6,3 @@ You can listen to and download the working file for [099_Az-Zalzalah_الزلز�
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/099.mp3"></audio>
-

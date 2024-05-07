@@ -6,4 +6,3 @@ You can listen to and download the working file for [033_Al-Ahzab_الأحزاب
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/033.mp3"></audio>
-

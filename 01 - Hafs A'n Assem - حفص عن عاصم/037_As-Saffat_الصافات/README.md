@@ -6,4 +6,3 @@ You can listen to and download the working file for [037_As-Saffat_الصافا�
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/037.mp3"></audio>
-

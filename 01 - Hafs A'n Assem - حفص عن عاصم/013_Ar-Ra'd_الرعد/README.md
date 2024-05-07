@@ -6,4 +6,3 @@ You can listen to and download the working file for [013_Ar-Ra'd_الرعد](htt
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/013.mp3"></audio>
-

@@ -6,4 +6,3 @@ You can listen to and download the working file for [020_Taha_طه](https://serv
 **Copyright mp3Quran**
 
 <audio controls src="https://server13.mp3quran.net/husr/020.mp3"></audio>
-
