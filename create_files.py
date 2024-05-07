@@ -45,7 +45,6 @@ You can listen to and download the working file for [{surah_name}]({base_url}/{s
         with open(file_path, "a",encoding="utf-8") as f:
             f.write(readme)
 
-
     for i in range(1, num_folders + 1):
         # Format folder name with leading zeros
         folder_name = f"{i:03d}"
