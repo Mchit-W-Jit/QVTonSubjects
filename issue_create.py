@@ -23,7 +23,7 @@ def create_issue(sura_name, section_number, riwaya, label, milestone):
         url += f"01%20-%20Hafs%20A'n%20Assem%20-%20حفص%20عن%20عاصم/{label}/{section_number_str}"
     #Sleeping 25s to avoid GraphQL: was submitted too quickly (createIssue) error
     ##Implementaitons
-    title = f"[Impl.] {sura_name}_{section_number_str}_Audacity"
+    title = f"[Impl.] {sura_name}_{section_number_str}_Audio"
 
     body = f"Please create the audio for [Surah {sura_name}, Section {section_number}]({url})"
     #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me -m \"{milestone}\""]
@@ -43,7 +43,7 @@ def create_issue(sura_name, section_number, riwaya, label, milestone):
     print(f"gh issue create -t \"{title}\" -b \"{body}\" -l \"{label},{riwaya},text\" -a @me -m \"{milestone}\" ; sleep 25")
 
     ##Reviews
-    title = f"[Review] {sura_name}_{section_number_str}_Audacity"
+    title = f"[Review] {sura_name}_{section_number_str}_Audio"
     body = f"Please review the audio for [Surah {sura_name}, Section {section_number}]({url})"
     #command = ["gh", "issue", "create", "-t", title, "-b", body, "-l", label, "-a @me -m \"{milestone}\""]
     #subprocess.run(command, check=True)
