@@ -1,5 +1,8 @@
 {
     "editor.tabCompletion": "on",
     "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "cSpell.words": [
+        "Hafs"
+    ]
 }
