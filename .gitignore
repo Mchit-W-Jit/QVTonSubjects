@@ -160,4 +160,11 @@ cython_debug/
 #.idea/
 
 #Helpers
-helper.sh
+helper.*
+
+#Audio files
+*.wav
+*.mp3
+*.ogg
+*eff*.au
+*_*.aup
