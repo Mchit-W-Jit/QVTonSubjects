@@ -1,7 +1,7 @@
 #usage: create_files.py [-h] riwaya num_folders surah_name
 
 ./create_files.py Hafs 2 "001_Al-Fatiha_الفاتحة"
-./create_files.py Hafs 1 "002_Al-Baqarah_البقرة"
+./create_files.py Hafs 114 "002_Al-Baqarah_البقرة"
 ./create_files.py Hafs 68 "003_Al-Imran_آل عمران"
 ./create_files.py Hafs 73 "004_An-Nisaa'_النساء"
 ./create_files.py Hafs 60 "005_Al-Ma'idah_المائدة"

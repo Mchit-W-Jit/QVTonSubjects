@@ -34,6 +34,16 @@ You can listen to and download the working file for [{surah_name}]({base_url}/{s
 
 <audio controls src="{base_url}/{surah_name[:3]}.mp3"></audio>
 """
+    json_content = f"""
+\{
+    'riwaya': 'Hafs',
+    'link': 'https://server13.mp3quran.net/husr/001.mp3',
+    'edges': \[
+        \[0, 0\],
+        \[0, 0\]
+    ]
+\}
+"""
     #print (readme)
     #Creating README for each Surah
     folder_path = os.path.join(base_dir, surah_name)
@@ -57,13 +67,6 @@ You can listen to and download the working file for [{surah_name}]({base_url}/{s
         file_path = os.path.join(folder_path, f"{folder_name}.txt")
         if os.path.exists(file_path):
             print(f"The file '{file_path}' exists.")
-        else:
-            with open(file_path, "a",encoding="utf-8") as f:
-                f.write("")  # Empty file
-
-        file_path = os.path.join(folder_path, f"{folder_name}.aup")
-        if os.path.exists(file_path):
-                print(f"The file '{file_path}' exists.")
         else:
             with open(file_path, "a",encoding="utf-8") as f:
                 f.write("")  # Empty file
