@@ -44,25 +44,50 @@ body:
         You can find your WVTonSubjects version in **Settings**.
       placeholder: |
         Example: "0.2.6"
+
     validations:
       required: true
 
   - type: textarea
-    id: other-details
+    id: expected-behavior
     attributes:
-      label: Other details
+      label: Expected behavior
       placeholder: |
-        Additional details and attachments.
+        Example:
+          "This should happen..."
+    validations:
+      required: true
 
-  - type: checkboxes
-    id: acknowledgements
+  - type: textarea
+    id: actual-behavior
     attributes:
-      label: Acknowledgements
-      description: Your issue will be closed if you haven't done these steps.
-      options:
-        - label: I have searched the existing issues and this is a new ticket, **NOT** a duplicate or related to another open issue.
-          required: true
-        - label: I have written a short but informative title.
-          required: true
-        - label: I will fill out all of the requested information in this form.
-          required: true
+      label: Actual behavior
+      placeholder: |
+        Example:
+          "This happened instead..."
+    validations:
+      required: true
+
+  - type: input
+    id: WVTonSubjects-version
+    attributes:
+      label: WVTonSubjects version
+      description: |
+        You can find your WVTonSubjects version in **Settings**.
+      placeholder: |
+        Example: "0.2.6"
+=======
+ame: ⭐ Feature request
+description: Suggest a feature to improve the app
+labels: [enhancement]
+body:
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe your suggested feature
+      description: How can an existing source be improved?
+      placeholder: |
+        Example:
+          "It should work like this..."
+          
