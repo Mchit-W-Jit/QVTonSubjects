@@ -1,8 +1,6 @@
 {
-    "riwaya": "Hafs",
-    "link": "https://server13.mp3quran.net/husr/001.mp3",
-    "edges": [
-        [0, 0],
-        [0, 0]
+    "sections": [
+        [0, 34.01],
+        [34.01, 54.03]
     ]
 }
