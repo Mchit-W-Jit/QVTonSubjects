@@ -1,21 +1,27 @@
 # QVTonSubjects
-
+<h3 align="center">
+   <picture>
+      <img src="https://raw.githubusercontent.com/GitMuslim/quran/main/assets/quran_mocha.png" width="100" alt="Logo"/><br/>
+   </picture>
+</h3>
 <p align="center">
 <img alt="QVTonSubjects" src="https://b3log.org/images/brand/QVTonSubjects-128.png">
 <br>
 Refactor your thinking
-<br><br>
-<a title="Build Status" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Mchit-W-Jit/QVTonSubjects/cd.yml?style=flat-square"></a>
-<a title="Releases" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/releases"><img src="https://img.shields.io/github/release/Mchit-W-Jit/QVTonSubjects.svg?style=flat-square&color=9CF"></a>
-<a title="Downloads" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/releases"><img src="https://img.shields.io/github/downloads/Mchit-W-Jit/QVTonSubjects/total.svg?style=flat-square&color=blueviolet"></a>
-<br>
-<br>
-<a title="AGPLv3" target="_blank" href="https://www.gnu.org/licenses/agpl-3.0.txt"><img src="http://img.shields.io/badge/license-AGPLv3-orange.svg?style=flat-square"></a>
-<a title="Code Size" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects"><img src="https://img.shields.io/github/languages/code-size/Mchit-W-Jit/QVTonSubjects.svg?style=flat-square&color=yellow"></a>
-<a title="GitHub Pull Requests" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/pulls"><img src="https://img.shields.io/github/issues-pr-closed/Mchit-W-Jit/QVTonSubjects.svg?style=flat-square&color=FF9966"></a>
-<br>
-<a title="GitHub Commits" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/commits/master"><img src="https://img.shields.io/github/commit-activity/m/Mchit-W-Jit/QVTonSubjects.svg?style=flat-square"></a>
-<a title="Last Commit" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/commits/master"><img src="https://img.shields.io/github/last-commit/Mchit-W-Jit/QVTonSubjects.svg?style=flat-square&color=FF9900"></a>
+
+<a href="https://github.com/Mchit-W-Jit/QVTonSubjects/stargazers"><img alt="Stargazers" src="https://img.shields.io/github/stars/Mchit-W-Jit/QVTonSubjects?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+<a href="https://github.com/Mchit-W-Jit/QVTonSubjects/issues"><img src="https://img.shields.io/github/issues/Mchit-W-Jit/QVTonSubjects?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+<a href="https://github.com/Mchit-W-Jit/QVTonSubjects/contributors"><img src="https://img.shields.io/github/contributors/Mchit-W-Jit/QVTonSubjects?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+
+<a title="Build Status" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Mchit-W-Jit/QVTonSubjects/cd.yml?style=for-the-badge"></a>
+<a title="Releases" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/releases"><img src="https://img.shields.io/github/release/Mchit-W-Jit/QVTonSubjects.svg?style=for-the-badge&color=9CF"></a>
+<a title="Downloads" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/releases"><img src="https://img.shields.io/github/downloads/Mchit-W-Jit/QVTonSubjects/total.svg?style=for-the-badge&color=blueviolet"></a>
+
+<a title="AGPLv3" target="_blank" href="https://www.gnu.org/licenses/agpl-3.0.txt"><img src="http://img.shields.io/badge/license-AGPLv3-orange.svg?style=for-the-badge"></a>
+<a title="Code Size" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects"><img src="https://img.shields.io/github/languages/code-size/Mchit-W-Jit/QVTonSubjects.svg?style=for-the-badge&color=yellow"></a>
+<a title="GitHub Pull Requests" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/pulls"><img src="https://img.shields.io/github/issues-pr-closed/Mchit-W-Jit/QVTonSubjects.svg??colorA=363a4f&colorB=FF99668&style=for-the-badge"></a>
+<a title="GitHub Commits" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/commits/master"><img src="https://img.shields.io/github/commit-activity/m/Mchit-W-Jit/QVTonSubjects.svg?style=for-the-badge"></a>
+<a title="Last Commit" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/commits/master"><img src="https://img.shields.io/github/last-commit/Mchit-W-Jit/QVTonSubjects.svg?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
 </p>
 
 ## 💡 Introduction
