@@ -102,17 +102,12 @@ def calculate_duration(start_time_str, end_time_str):
         duration = end_time - start_time
 
         # Extract hours, minutes, seconds, and microseconds from timedelta
+        print(f"totoal secondses {duration.total_seconds()}")
         hours, remainder = divmod(duration.total_seconds(), 3600)
         minutes, seconds = divmod(remainder, 60)
-        microseconds = duration.microseconds
-
-        print(f"{microseconds:2.0f}".zfill(2))
 
         # Format duration string
-        #duration_str = f"{hours:2.0f}:{minutes:2.0f}:{seconds:2.0f}.{microseconds:2.0f}"
-        duration_str = f"{hours:.2f}".zfill(4) #:{minutes:2.0f}:{seconds:2.0f}.{microseconds:2.0f}"
-
-        #0.000000:0.000000:13.020000.20000.000000
+        duration_str = f"{hours:.0f}:{minutes:.0f}:{seconds:.2f}"
         #ffmpeg -ss <start_time> -t <duration> -i <input_file> -c:a copy <output_file>
 
         return duration_str
@@ -135,7 +130,7 @@ if __name__ == "__main__":
 
     # Call the trim function with the provided JSON file path
     #trim_mp3_from_json(args.json_file)
-    print(calculate_duration("02:02:34.01", "05:03:47.55"))
+    print(calculate_duration("00:0:34.01", "0:1:47.55"))
                              #02:48:14.54
 
     Surat_dict = [
