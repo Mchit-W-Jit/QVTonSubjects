@@ -1,12 +1,12 @@
-#! /usr/bin/python3
-
 """
 Module generate mp3 files from audacity.
 """
+#! /usr/bin/python3
 
 import subprocess
 import os
 import json
+
 from datetime import datetime
 from argparse import ArgumentParser
 
@@ -38,6 +38,7 @@ def trim_mp3_from_json(json_dir):
                 print(f"Skipping: JSON file not found - {json_file}")
         else:
             print(f"Skipping: Subdirectory not found - {subfolder_path}")
+
 
 def trim_mp3_from_json_file(json_file_path):
     """
