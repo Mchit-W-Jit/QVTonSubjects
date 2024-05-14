@@ -213,6 +213,36 @@ def get_thumbnail_and_description(riwaya, sura, section):
 
     return thumbnail, description
 
+def is_ffmpeg_installed():
+    """Checks if ffmpeg is installed by attempting to run the 'ffmpeg -version' command.
+
+    Returns:
+        bool: True if ffmpeg is found, False otherwise.
+    """
+    try:
+        # Run ffmpeg -version with capture_output to get command output
+        result = subprocess.run(["ffmpeg", "-version"], capture_output=True, text=True, check=False)
+        # Check if the return code is successful (0) and output contains 'ffmpeg version'
+        return result.returncode == 0 and "ffmpeg version" in result.stdout
+    except subprocess.CalledProcessError:
+        # Handle potential errors (e.g., ffmpeg not found)
+        return False
+
+def is_eyed3_installed():
+    """Checks if eyeD3 is installed using pip show command.
+
+    Returns:
+        bool: True if eyeD3 is found, False otherwise.
+    """
+    try:
+        # Run pip show eyed3 with capture_output to get command output
+        result = subprocess.run(["eyeD3", "-h"], capture_output=True, text=True, check=False)
+        # Check if the return code is successful (0) and output contains 'ffmpeg version'
+        return result.returncode == 0 and "usage: eyeD3" in result.stdout
+    except subprocess.CalledProcessError:
+        return False
+
+
 # Example usage
 
 if __name__ == "__main__":
