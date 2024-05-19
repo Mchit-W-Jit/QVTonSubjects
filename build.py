@@ -96,7 +96,7 @@ def calculate_duration(start_time_str, end_time_str):
         duration = end_time - start_time
 
         # Extract hours, minutes, seconds, and microseconds from timedelta
-        print(f"totoal secondses {duration.total_seconds()}")
+        #print(f"totoal secondses {duration.total_seconds()}")
         hours, remainder = divmod(duration.total_seconds(), 3600)
         minutes, seconds = divmod(remainder, 60)
 
@@ -138,52 +138,99 @@ def generate_mp3s_with_1_section(dict, riwaya, reciter):
             #Add Metadatas
             print(get_thumbnail_and_description("Hafs", element[0], "001"))
 
-def generate_mp3s(dict, riwaya, reciter):
-    for element in dict:
-        build_dir, mp3_link, json_path = get_mp3_paths(riwaya, reciter)
+def generate_mp3s(diction, riwaya, reciter):
+    """_summary_
+
+    Args:
+        diction (_type_): _description_
+        riwaya (_type_): _description_
+        reciter (_type_): _description_
+    """
+    for element in diction:
+        build_dir, mp3_link = get_mp3_paths(riwaya, reciter)
         build_folder = os.path.join(build_dir, element[0][:3])
-        json_file_path = os.path.join(json_path, element[0][:3]) #FIXME
+        json_path = get_json_path(riwaya, reciter, element[0])
         os.makedirs(build_folder, exist_ok=True)
         mp3_link += f"{element[0][:3]}.mp3"
+
+        # Download the MP3 file
+        download_command = ["wget", "-O", "temp.mp3", mp3_link]
+        subprocess.run(download_command, check=True)
+
         # Read the JSON file
-        with open(json_file_path, "r",encoding="utf-8") as f:
+        with open(json_path, "r",encoding="utf-8") as f:
+            # "./01 - Hafs A'n Assem - حفص عن عاصم/001_Al-Fatiha_الفاتحة/hafs_husari_001.json"
             data = json.load(f)
         # Extract audio information
         json_sections = data["sections"]
         # Check if sections exist
         if not json_sections:
-            print(f"No 'sections' data found in JSON file: {json_file_path}")
+            print(f"No 'sections' data found in JSON file: {json_path}")
             return
-        for section in range(1, json_sections.length() +1):
-            filename = f"{section:03d}.mp3"
+        for section in range(0, len(json_sections)):
+            filename = f"{section + 1:03d}.mp3"
             # Extract first edge for trimming
             start_time  = json_sections[section][0]
-            duration    = json_sections[section][1]
+            end_time    = json_sections[section][1]
+            #duration    = calculate_duration(start_time, end_time)
 
             # Construct ffmpeg command (replace with your actual command if needed)
-            ffmpeg_command = f"ffmpeg -ss {start_time} -t {duration} -i '{mp3_link}' -c:a copy {filename}"
+            ffmpeg_command = f"ffmpeg -y -ss {start_time} -to {end_time} -i temp.mp3 -c:a copy \"{build_folder}/{filename}\""
+            print(f"ffmep cmd : {ffmpeg_command}")
             try:
-                # Execute ffmpeg command to trim
-                subprocess.run(ffmpeg_command.split(), check=True)
+                # Trim the downloaded MP3 file using ffmpeg
+                subprocess.run(ffmpeg_command, check=True)
                 print(f"Trimmed MP3 saved as {filename}")
             except subprocess.CalledProcessError as e:
                 print(f"Error trimming MP3: {e}")
             except FileNotFoundError as e:
                 print(f"File not found: {e}")
+        # Delete the downloaded file (optional)
+        subprocess.run(["rm", "temp.mp3"])
 
 def get_mp3_paths(riwaya, reciter):
+    """_summary_
+
+    Args:
+        riwaya (_type_): _description_
+        reciter (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     base_dir ="./build/"
     if "Hafs" == riwaya:
         base_dir +="01/"
         if "Husari" == reciter:
             base_dir += "Mahmoud Khalil Al-Hussary/"
             base_url = "https://server13.mp3quran.net/husr/"
-            json_path = "has_husri"
         else:
             pass
     else:
         pass
-    return base_dir, base_url, json_path
+    return base_dir, base_url
+
+def get_json_path (riwaya, reciter, sura):
+    """_summary_
+
+    Args:
+        riwaya (_type_): _description_
+        reciter (_type_): _description_
+        sura (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    prefix = f"_{sura[:3]}.json"
+    if "Hafs" == riwaya:
+        base_dir = "./01 - Hafs A'n Assem - حفص عن عاصم"
+        if "Husari" == reciter:
+            json_path = f"{base_dir}/{sura}/hafs_husari{prefix}"
+        else:
+            pass
+    else:
+        pass
+    return json_path
 
 def get_thumbnail_and_description(riwaya, sura, section):
     if "Hafs" == riwaya:
@@ -242,7 +289,6 @@ def is_eyed3_installed():
     except subprocess.CalledProcessError:
         return False
 
-
 # Example usage
 
 if __name__ == "__main__":
@@ -260,6 +306,6 @@ if __name__ == "__main__":
 
     # Call the trim function with the provided JSON file path
     #trim_mp3_from_json(args.json_file)
-    print(calculate_duration("00:0:34.01", "0:1:47.55"))
-    generate_mp3s_with_1_section(Surat_dict, "Hafs", "Husari")
+    print(calculate_duration("00:0:34.09", "0:1:47.55"))
+    #generate_mp3s_with_1_section(Surat_dict, "Hafs", "Husari")
     generate_mp3s(Surat_dict, "Hafs", "Husari")
