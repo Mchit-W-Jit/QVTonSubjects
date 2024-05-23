@@ -23,7 +23,7 @@ def trim_mp3_from_json(json_dir):
         # Check if subdirectory exists
         if os.path.isdir(subfolder_path):
             # Find the JSON file within the subdirectory
-            json_file = os.path.join(subfolder_path, "data.json")  # Assuming file name is "data.json"
+            json_file = os.path.join(subfolder_path, "data.json")
 
             # Check if JSON file exists
             if os.path.isfile(json_file):
@@ -67,7 +67,7 @@ def trim_mp3_from_json_file(json_file_path):
     try:
         # Execute ffmpeg command to trim
         subprocess.run(ffmpeg_command.split(), check=True)
-        print(f"Trimmed MP3 saved as 'trimmed.mp3'")
+        print("Trimmed MP3 saved as 'trimmed.mp3'")
 
         # Remove temporary file (optional)
         os.remove("temp.mp3")
@@ -96,7 +96,7 @@ def calculate_duration(start_time_str, end_time_str):
         duration = end_time - start_time
 
         # Extract hours, minutes, seconds, and microseconds from timedelta
-        #print(f"totoal secondses {duration.total_seconds()}")
+        #print(f"total seconds {duration.total_seconds()}")
         hours, remainder = divmod(duration.total_seconds(), 3600)
         minutes, seconds = divmod(remainder, 60)
 
@@ -111,6 +111,13 @@ def calculate_duration(start_time_str, end_time_str):
         raise ValueError("Invalid time format. Please use 'hh:mm:ss.ss' format.")
 
 def generate_mp3s_with_1_section(dict, riwaya, reciter):
+    """_summary_
+
+    Args:
+        dict (_type_): _description_
+        riwaya (_type_): _description_
+        reciter (_type_): _description_
+    """
     for element in dict:
         if 1== element[1]:
             dir , url = get_mp3_paths(riwaya, reciter)
@@ -135,7 +142,7 @@ def generate_mp3s_with_1_section(dict, riwaya, reciter):
             else:
                 print(f"Error downloading file: {process.returncode}")
 
-            #Add Metadatas
+            #Add Metadata
             print(get_thumbnail_and_description("Hafs", element[0], "001"))
 
 def generate_mp3s(diction, riwaya, reciter):
@@ -306,6 +313,6 @@ if __name__ == "__main__":
 
     # Call the trim function with the provided JSON file path
     #trim_mp3_from_json(args.json_file)
-    print(calculate_duration("00:0:34.09", "0:1:47.55"))
+    #print(calculate_duration("00:0:34.09", "0:1:47.55"))
     #generate_mp3s_with_1_section(Surat_dict, "Hafs", "Husari")
     generate_mp3s(Surat_dict, "Hafs", "Husari")
