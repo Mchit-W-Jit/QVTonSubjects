@@ -1,4 +1,5 @@
 # QVTonSubjects
+
 <h3 align="center">
    <picture>
       <img src="https://raw.githubusercontent.com/GitMuslim/quran/main/assets/quran_mocha.png" width="100" alt="Logo"/><br/>
@@ -22,6 +23,7 @@ Refactor your thinking
 <a title="GitHub Pull Requests" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/pulls"><img src="https://img.shields.io/github/issues-pr-closed/Mchit-W-Jit/QVTonSubjects.svg??colorA=363a4f&colorB=FF99668&style=for-the-badge"></a>
 <a title="GitHub Commits" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/commits/master"><img src="https://img.shields.io/github/commit-activity/m/Mchit-W-Jit/QVTonSubjects.svg?style=for-the-badge"></a>
 <a title="Last Commit" target="_blank" href="https://github.com/Mchit-W-Jit/QVTonSubjects/commits/master"><img src="https://img.shields.io/github/last-commit/Mchit-W-Jit/QVTonSubjects.svg?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+
 </p>
 
 ## 💡 Introduction
@@ -31,11 +33,9 @@ WYSIWYG.
 
 Welcome to [QVTonSubjects English Discussion Forum]() to learn more.
 
-
 ## 🔮 Features
 
 Most features are free, even for commercial use.
-
 
 ## 🏗️ Architecture design and open source ecosystem
 
@@ -45,8 +45,8 @@ Most features are free, even for commercial use.
 
 ## 🗺️ Roadmap
 
-* [QVTonSubjects development plan and progress](https://github.com/orgs/Mchit-W-Jit/projects/1)
-* [QVTonSubjects changelog](CHANGELOG.md)
+- [QVTonSubjects development plan and progress](https://github.com/orgs/Mchit-W-Jit/projects/1)
+- [QVTonSubjects changelog](CHANGELOG.md)
 
 ## 🚀 Download Setup
 
@@ -54,41 +54,35 @@ It is recommended to give priority to installing through the application market 
 
 ### App Market
 
-
 ### Docker Hosting
 
-
 #### Overview
-
 
 #### File structure
 
 The overall program is located under `/opt/QVTonSubjects/`, which is basically the structure under the resources folder of the Electron installation package:
 
-*
-*
-*
-*
+-
+-
+-
+-
 
 #### Entrypoint
 
 #### User permissions
 
-
 #### Hidden port
-
 
 #### Note
 
-* Be sure to confirm the correctness of the mounted volume, otherwise the data will be lost after the container is deleted
-* Do not use URL rewriting for redirection, otherwise there may be problems with authentication, it is recommended to configure a reverse proxy
+- Be sure to confirm the correctness of the mounted volume, otherwise the data will be lost after the container is deleted
+- Do not use URL rewriting for redirection, otherwise there may be problems with authentication, it is recommended to configure a reverse proxy
 
 #### Limitations
 
-
-
 ### Installation Package
-* [GitHub](https://github.com/Mchit-W-Jit/QVTonSubjects/releases)
+
+- [GitHub](https://github.com/Mchit-W-Jit/QVTonSubjects/releases)
 
 ### Insider Preview
 
@@ -96,9 +90,9 @@ We release insider preview before major updates, please visit [https://github.co
 
 ## 🏘️ Community
 
-* [English Discussion Forum](https://liuyun.io)
-* [User community summary](https://liuyun.io/article/1687779743723)
-* [Awesome QVTonSubjects](https://github.com/Mchit-W-Jit/awesome)
+- [English Discussion Forum](https://liuyun.io)
+- [User community summary](https://liuyun.io/article/1687779743723)
+- [Awesome QVTonSubjects](https://github.com/Mchit-W-Jit/awesome)
 
 ## 🛠️ Development Guide
 
@@ -108,25 +102,24 @@ See [Development Guide](https://github.com/Mchit-W-Jit/QVTonSubjects/blob/master
 
 ### How does QVTonSubjects store data?
 
-
 ### Does it support data synchronization through a third-party sync disk?
 
 ### Is QVTonSubjects open source?
 
 QVTonSubjects is completely open source, and contributions are welcome:
 
-* [User Interface and Kernel](https://github.com/Mchit-W-Jit/QVTonSubjects)
-* [Android](https://github.com/Mchit-W-Jit/QVTonSubjects-android)
-* [iOS](https://github.com/Mchit-W-Jit/QVTonSubjects-ios)
-* [Chrome Clipping Extension](https://github.com/Mchit-W-Jit/QVTonSubjects-chrome)
+- [User Interface and Kernel](https://github.com/Mchit-W-Jit/QVTonSubjects)
+- [Android](https://github.com/Mchit-W-Jit/QVTonSubjects-android)
+- [iOS](https://github.com/Mchit-W-Jit/QVTonSubjects-ios)
+- [Chrome Clipping Extension](https://github.com/Mchit-W-Jit/QVTonSubjects-chrome)
 
 For more details, please refer to [Development Guide](https://github.com/Mchit-W-Jit/QVTonSubjects/blob/master/.github/CONTRIBUTING.md).
 
 ### How to upgrade to a new version?
 
-* If installed via app store, please update via app store
-* If it is installed through the installation package on the desktop, you can open the option of <kbd>Settings</kbd> - <kbd>About</kbd> - <kbd>Automatically download update installation package</kbd>, so that QVTonSubjects will automatically download The latest version of the installation package and prompts to install
-* If it is installed by manual installation package, please download the installation package again to install
+- If installed via app store, please update via app store
+- If it is installed through the installation package on the desktop, you can open the option of <kbd>Settings</kbd> - <kbd>About</kbd> - <kbd>Automatically download update installation package</kbd>, so that QVTonSubjects will automatically download The latest version of the installation package and prompts to install
+- If it is installed by manual installation package, please download the installation package again to install
 
 You can <kbd>Check update</kbd> in <kbd>Settings</kbd> - <kbd>About</kbd> - <kbd>Current Version</kbd>, or pay attention to [Official Download](https://b3log.org/QVTonSubjects/en/download.html) or [GitHub Releases](https://github.com/Mchit-W-Jit/QVTonSubjects/releases) to get the new version.
 
