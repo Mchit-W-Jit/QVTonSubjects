@@ -168,3 +168,9 @@ helper.*
 *.ogg
 *eff*.au
 *_*.aup
+
+#Ignore build
+build/*
+
+#ignoring github issues
+*.github-issues
