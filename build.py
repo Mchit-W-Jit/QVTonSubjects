@@ -168,15 +168,19 @@ def generate_mp3s(diction, riwaya, reciter):
         mp3_link += f"{element[0][:3]}.mp3"
 
         # Download the MP3 file
-        download_command = ["wget", "-O", "temp.mp3", mp3_link]
-        subprocess.run(download_command, check=True)
+        #download_command = ["wget", "-O", "temp.mp3", mp3_link]
+        #subprocess.run(download_command, check=True)
 
         # Read the JSON file
-        with open(json_path, "r", encoding="utf-8") as f:
-            # "./01 - Hafs A'n Assem - حفص عن عاصم/001_Al-Fatiha_الفاتحة/hafs_husari_001.json"
-            data = json.load(f)
-        # Extract audio information
-        json_sections = data["sections"]
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                # "./01 - Hafs A'n Assem - حفص عن عاصم/001_Al-Fatiha_الفاتحة/hafs_husari_001.json"
+                data = json.load(f)
+            # Extract audio information
+            json_sections = data["sections"]
+        except Exception as e:
+            print(f"Error reading JSON file: {e}")
+
         # Check if sections exist
         if not json_sections:
             print(f"No 'sections' data found in JSON file: {json_path}")
@@ -189,18 +193,19 @@ def generate_mp3s(diction, riwaya, reciter):
             # duration    = calculate_duration(start_time, end_time)
 
             # Construct ffmpeg command (replace with your actual command if needed)
-            ffmpeg_command = f'ffmpeg -y -ss {start_time} -to {end_time} -i temp.mp3 -c:a copy "{build_folder}/{filename}"'
+            ffmpeg_command = f'ffmpeg -y -ss {start_time} -to {end_time} -i {mp3_link} -c:a copy "{build_folder}/{filename}"'
             print(f"ffmep cmd : {ffmpeg_command}")
             try:
                 # Trim the downloaded MP3 file using ffmpeg
-                subprocess.run(ffmpeg_command, check=True)
+                os.system(ffmpeg_command)
+                #subprocess.run(ffmpeg_command, check=True)
                 print(f"Trimmed MP3 saved as {filename}")
             except subprocess.CalledProcessError as e:
                 print(f"Error trimming MP3: {e}")
             except FileNotFoundError as e:
                 print(f"File not found: {e}")
         # Delete the downloaded file (optional)
-        subprocess.run(["rm", "temp.mp3"])
+        #subprocess.run(["rm", "temp.mp3"])
 
 
 def get_mp3_paths(riwaya, reciter):
@@ -313,8 +318,6 @@ def is_eyed3_installed():
         return False
 
 
-# Example usage
-
 if __name__ == "__main__":
     # Parse command-line arguments
     parser = ArgumentParser(
@@ -343,82 +346,82 @@ if __name__ == "__main__":
 
     Surat_dict = [
         ["001_Al-Fatiha_الفاتحة", 2],
-        ["002_Al-Baqarah_البقرة", 114],
-        ["003_Al-Imran_آل عمران", 68],
-        ["004_An-Nisaa'_النساء", 73],
-        ["005_Al-Ma'idah_المائدة", 60],
-        ["006_Al-An'am_الأنعام", 64],
-        ["007_Al-A'raf_الأعراف", 62],
-        ["008_Al-Anfal_الأنفال", 31],
-        ["009_At-Tawbah_التوبة", 51],
-        ["010_Yunus_يونس", 32],
-        ["011_Hud_هود", 27],
-        ["012_Yusuf_يوسف", 31],
-        ["013_Ar-Ra'd_الرعد", 15],
-        ["014_Ibrahim_إبراهيم", 18],
-        ["015_Al-Hijr_الحجر", 16],
-        ["016_An-Nahl_النحل", 37],
-        ["017_Al-Israa'_الإسراء", 34],
-        ["018_Al-Kahf_الكهف", 32],
-        ["019_Maryam_مريم", 19],
-        ["020_Taha_طه", 27],
-        ["021_Al-Anbiya'_الأنبياء", 32],
-        ["022_Al-Hajj_الحج", 28],
-        ["023_Al-Mu'minoon_المؤمنون", 23],
-        ["024_An-Nur_النور", 23],
-        ["025_Al-Furqan_الفرقان", 16],
-        ["026_Ash-Shu'araa'_الشعراء", 22],
-        ["027_An-Naml_النمل", 23],
-        ["028_Al-Qasas_القصص", 22],
-        ["029_Al-Ankabut_العنكبوت", 24],
-        ["030_Ar-Rum_الروم", 17],
-        ["031_Luqman_لقمان", 10],
-        ["032_As-Sajdah_السجدة", 10],
-        ["033_Al-Ahzab_الأحزاب", 29],
-        ["034_Saba'_سبأ", 18],
-        ["035_Fatir_فاطر", 16],
-        ["036_Ya Sin_يس", 13],
-        ["037_As-Saffat_الصافات", 20],
-        ["038_Saad_ص", 16],
-        ["039_Az-Zumar_الزمر", 30],
-        ["040_Ghafir_غافر", 25],
-        ["041_Fussilat_فصلت", 16],
-        ["042_Ash-Shuraa'_الشورى", 20],
-        ["043_Az-Zukhruf_الزخرف", 19],
-        ["044_Ad-Dukhan_الدخان", 10],
-        ["045_Al-Jathiyah_الجاثية", 11],
-        ["046_Al-Ahqaf_الأحقاف", 11],
-        ["047_Muhammad_محمد", 13],
-        ["048_Al-Fath_الفتح", 13],
-        ["049_Al-Hujurat_الحجرات", 10],
-        ["050_Qaf_ق", 10],
-        ["051_Ad-Dhariyat_الذاريات", 12],
-        ["052_At-Tur_الطور", 8],
-        ["053_An-Najm_النجم", 11],
-        ["054_Al-Qamar_القمر", 11],
-        ["055_Ar-Rahman_الرحمن", 8],
-        ["056_Al-Waqi'ah_الواقعة", 11],
-        ["057_Al-Hadid_الحديد", 14],
-        ["058_Al-Mujadilah_المجادلة", 7],
-        ["059_Al-Hashr_الحشر", 9],
-        ["060_Al-Mumtahinah_الممتحنة", 6],
-        ["061_As-Saff_الصف", 5],
-        ["062_Al-Jumu'ah_الجمعة", 3],
-        ["063_Al-Munafiqun_المنافقون", 3],
-        ["064_At-Taghabun_التغابن", 7],
-        ["065_At-Talaq_الطلاق", 4],
-        ["066_At-Tahrim_التحريم", 4],
-        ["067_Al-Mulk_الملك", 8],
-        ["068_Al-Qalam_القلم", 8],
-        ["069_Al-Haqqah_الحاقة", 6],
-        ["070_Al-Ma'arij_المعارج", 7],
-        ["071_Nuh_نوح", 5],
-        ["072_Al-Jinn_الجن", 5],
-        ["073_Al-Muzzammil_المزمل", 4],
-        ["074_Al-Mudaththir_المدثر", 7],
-        ["075_Al-Qiyama_القيامة", 5],
-        ["076_Al-Insan_الإنسان", 8],
-        ["077_Al-Mursalat_المرسلات", 7],
+        #["002_Al-Baqarah_البقرة", 114],
+        #["003_Al-Imran_آل عمران", 68],
+        #["004_An-Nisaa'_النساء", 73],
+        #["005_Al-Ma'idah_المائدة", 60],
+        #["006_Al-An'am_الأنعام", 64],
+        #["007_Al-A'raf_الأعراف", 62],
+        #["008_Al-Anfal_الأنفال", 31],
+        #["009_At-Tawbah_التوبة", 51],
+        #["010_Yunus_يونس", 32],
+        #["011_Hud_هود", 27],
+        #["012_Yusuf_يوسف", 31],
+        #["013_Ar-Ra'd_الرعد", 15],
+        #["014_Ibrahim_إبراهيم", 18],
+        #["015_Al-Hijr_الحجر", 16],
+        #["016_An-Nahl_النحل", 37],
+        #["017_Al-Israa'_الإسراء", 34],
+        #["018_Al-Kahf_الكهف", 32],
+        #["019_Maryam_مريم", 19],
+        #["020_Taha_طه", 27],
+        #["021_Al-Anbiya'_الأنبياء", 32],
+        #["022_Al-Hajj_الحج", 28],
+        #["023_Al-Mu'minoon_المؤمنون", 23],
+        #["024_An-Nur_النور", 23],
+        #["025_Al-Furqan_الفرقان", 16],
+        #["026_Ash-Shu'araa'_الشعراء", 22],
+        #["027_An-Naml_النمل", 23],
+        #["028_Al-Qasas_القصص", 22],
+        #["029_Al-Ankabut_العنكبوت", 24],
+        #["030_Ar-Rum_الروم", 17],
+        #["031_Luqman_لقمان", 10],
+        #["032_As-Sajdah_السجدة", 10],
+        #["033_Al-Ahzab_الأحزاب", 29],
+        #["034_Saba'_سبأ", 18],
+        #["035_Fatir_فاطر", 16],
+        #["036_Ya Sin_يس", 13],
+        #["037_As-Saffat_الصافات", 20],
+        #["038_Saad_ص", 16],
+        #["039_Az-Zumar_الزمر", 30],
+        #["040_Ghafir_غافر", 25],
+        #["041_Fussilat_فصلت", 16],
+        #["042_Ash-Shuraa'_الشورى", 20],
+        #["043_Az-Zukhruf_الزخرف", 19],
+        #["044_Ad-Dukhan_الدخان", 10],
+        #["045_Al-Jathiyah_الجاثية", 11],
+        #["046_Al-Ahqaf_الأحقاف", 11],
+        #["047_Muhammad_محمد", 13],
+        #["048_Al-Fath_الفتح", 13],
+        #["049_Al-Hujurat_الحجرات", 10],
+        #["050_Qaf_ق", 10],
+        #["051_Ad-Dhariyat_الذاريات", 12],
+        #["052_At-Tur_الطور", 8],
+        #["053_An-Najm_النجم", 11],
+        #["054_Al-Qamar_القمر", 11],
+        #["055_Ar-Rahman_الرحمن", 8],
+        #["056_Al-Waqi'ah_الواقعة", 11],
+        #["057_Al-Hadid_الحديد", 14],
+        #["058_Al-Mujadilah_المجادلة", 7],
+        #["059_Al-Hashr_الحشر", 9],
+        #["060_Al-Mumtahinah_الممتحنة", 6],
+        #["061_As-Saff_الصف", 5],
+        #["062_Al-Jumu'ah_الجمعة", 3],
+        #["063_Al-Munafiqun_المنافقون", 3],
+        #["064_At-Taghabun_التغابن", 7],
+        #["065_At-Talaq_الطلاق", 4],
+        #["066_At-Tahrim_التحريم", 4],
+        #["067_Al-Mulk_الملك", 8],
+        #["068_Al-Qalam_القلم", 8],
+        #["069_Al-Haqqah_الحاقة", 6],
+        #["070_Al-Ma'arij_المعارج", 7],
+        #["071_Nuh_نوح", 5],
+        #["072_Al-Jinn_الجن", 5],
+        #["073_Al-Muzzammil_المزمل", 4],
+        #["074_Al-Mudaththir_المدثر", 7],
+        #["075_Al-Qiyama_القيامة", 5],
+        #["076_Al-Insan_الإنسان", 8],
+        #["077_Al-Mursalat_المرسلات", 7],
         ["078_An-Nabaa'_النبأ", 5],
         ["079_An-Nazi'at_النازعات", 6],
         ["080_Abasa_عبس", 4],
@@ -434,32 +437,30 @@ if __name__ == "__main__":
         ["090_Al-Balad_البلد", 3],
         ["091_Ash-Shams_الشمس", 2],
         ["092_Al-Layl_الليل", 4],
-        ["093_Ad-Duha_الضحى", 1],
-        ["094_Ash-Sharh_الشرح", 1],
-        ["095_At-Tin_التين", 1],
+        #["093_Ad-Duha_الضحى", 1],
+        #["094_Ash-Sharh_الشرح", 1],
+        #["095_At-Tin_التين", 1],
         ["096_Al-Alaq_العلق", 3],
-        ["097_Al-Qadr_القدر", 1],
+        #["097_Al-Qadr_القدر", 1],
         ["098_Al-Bayyinah_البينة", 3],
-        ["099_Az-Zalzalah_الزلزلة", 1],
+        #["099_Az-Zalzalah_الزلزلة", 1],
         ["100_Al-Adiyat_العاديات", 2],
-        ["101_Al-Qariah_القارعة", 1],
-        ["102_At-Takathur_التكاثر", 1],
-        ["103_Al-Asr_العصر", 1],
-        ["104_Al-Humazah_الهمزة", 1],
-        ["105_Al-Fil_الفيل", 1],
-        ["106_Quraysh_قريش", 1],
-        ["107_Al-Ma'un_الماعون", 2],
-        ["108_Al-Kawthar_الكوثر", 1],
-        ["109_Al-Kafirun_الكافرون", 1],
-        ["110_An-Nasr_النصر", 1],
-        ["111_Al-Masad_المسد", 1],
-        ["112_Al-Ikhlas_الاخلاص", 1],
-        ["113_Al-Falaq_الفلق", 1],
-        ["114_An-Nas_الناس", 1],
+        #["101_Al-Qariah_القارعة", 1],
+        #["102_At-Takathur_التكاثر", 1],
+        #["103_Al-Asr_العصر", 1],
+        #["104_Al-Humazah_الهمزة", 1],
+        #["105_Al-Fil_الفيل", 1],
+        #["106_Quraysh_قريش", 1],
+        #["107_Al-Ma'un_الماعون", 2],
+        #["108_Al-Kawthar_الكوثر", 1],
+        #["109_Al-Kafirun_الكافرون", 1],
+        #["110_An-Nasr_النصر", 1],
+        #["111_Al-Masad_المسد", 1],
+        #["112_Al-Ikhlas_الاخلاص", 1],
+        #["113_Al-Falaq_الفلق", 1],
+        #["114_An-Nas_الناس", 1],
     ]
 
     # Call the trim function with the provided JSON file path
-    # trim_mp3_from_json(args.json_file)
-    # print(calculate_duration("00:0:34.09", "0:1:47.55"))
     # generate_mp3s_with_1_section(Surat_dict, "Hafs", "Husari")
     generate_mp3s(Surat_dict, "Hafs", "Husari")
