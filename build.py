@@ -168,8 +168,8 @@ def generate_mp3s(diction, riwaya, reciter):
         mp3_link += f"{element[0][:3]}.mp3"
 
         # Download the MP3 file
-        #download_command = ["wget", "-O", "temp.mp3", mp3_link]
-        #subprocess.run(download_command, check=True)
+        download_command = ["wget", "-O", "temp.mp3", mp3_link]
+        subprocess.run(download_command, check=True)
 
         # Read the JSON file
         try:
@@ -185,7 +185,7 @@ def generate_mp3s(diction, riwaya, reciter):
         if not json_sections:
             print(f"No 'sections' data found in JSON file: {json_path}")
             return
-        for section in range(0, len(json_sections)):
+        for section, _ in enumerate(json_sections):
             filename = f"{section + 1:03d}.mp3"
             # Extract first edge for trimming
             start_time = json_sections[section][0]
@@ -193,7 +193,7 @@ def generate_mp3s(diction, riwaya, reciter):
             # duration    = calculate_duration(start_time, end_time)
 
             # Construct ffmpeg command (replace with your actual command if needed)
-            ffmpeg_command = f'ffmpeg -y -ss {start_time} -to {end_time} -i {mp3_link} -c:a copy "{build_folder}/{filename}"'
+            ffmpeg_command = f'ffmpeg -y -ss {start_time} -to {end_time} -i temp.mp3 -c:a copy "{build_folder}/{filename}"'
             print(f"ffmep cmd : {ffmpeg_command}")
             try:
                 # Trim the downloaded MP3 file using ffmpeg
@@ -205,8 +205,7 @@ def generate_mp3s(diction, riwaya, reciter):
             except FileNotFoundError as e:
                 print(f"File not found: {e}")
         # Delete the downloaded file (optional)
-        #subprocess.run(["rm", "temp.mp3"])
-
+        subprocess.run(["rm", "temp.mp3"], check=True)
 
 def get_mp3_paths(riwaya, reciter):
     """_summary_
@@ -354,7 +353,7 @@ if __name__ == "__main__":
         #["007_Al-A'raf_الأعراف", 62],
         #["008_Al-Anfal_الأنفال", 31],
         #["009_At-Tawbah_التوبة", 51],
-        #["010_Yunus_يونس", 32],
+        ["010_Yunus_يونس", 32],
         #["011_Hud_هود", 27],
         #["012_Yusuf_يوسف", 31],
         #["013_Ar-Ra'd_الرعد", 15],
@@ -366,7 +365,7 @@ if __name__ == "__main__":
         #["019_Maryam_مريم", 19],
         #["020_Taha_طه", 27],
         #["021_Al-Anbiya'_الأنبياء", 32],
-        #["022_Al-Hajj_الحج", 28],
+        ["022_Al-Hajj_الحج", 28],
         #["023_Al-Mu'minoon_المؤمنون", 23],
         #["024_An-Nur_النور", 23],
         #["025_Al-Furqan_الفرقان", 16],

@@ -171,6 +171,7 @@ helper.*
 
 #Ignore build
 build/*
+*.zip
 
 #ignoring github issues
 *.github-issues
