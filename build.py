@@ -185,7 +185,7 @@ def generate_mp3s(diction, riwaya, reciter):
         if not json_sections:
             print(f"No 'sections' data found in JSON file: {json_path}")
             return
-        for section in range(0, len(json_sections)):
+        for section, _ in enumerate(json_sections):
             filename = f"{section + 1:03d}.mp3"
             # Extract first edge for trimming
             start_time = json_sections[section][0]
@@ -205,8 +205,7 @@ def generate_mp3s(diction, riwaya, reciter):
             except FileNotFoundError as e:
                 print(f"File not found: {e}")
         # Delete the downloaded file (optional)
-        subprocess.run(["rm", "temp.mp3"])
-
+        subprocess.run(["rm", "temp.mp3"], check=True)
 
 def get_mp3_paths(riwaya, reciter):
     """_summary_
