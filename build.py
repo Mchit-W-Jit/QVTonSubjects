@@ -225,6 +225,13 @@ def get_mp3_paths(riwaya, reciter):
             base_url = "https://server13.mp3quran.net/husr/"
         else:
             pass
+    elif "Qalon" == riwaya:
+        base_dir += "02/"
+        if "Huthifi" == reciter:
+            base_dir += "Ali Alhuthaifi/"
+            base_url = "https://server9.mp3quran.net/huthifi_qalon/"
+        else:
+            pass
     else:
         pass
     return base_dir, base_url
@@ -462,4 +469,5 @@ if __name__ == "__main__":
 
     # Call the trim function with the provided JSON file path
     # generate_mp3s_with_1_section(Surat_dict, "Hafs", "Husari")
+    # generate_mp3s_with_1_section(Surat_dict, "Qalon", "Huthifi")
     generate_mp3s(Surat_dict, "Hafs", "Husari")
