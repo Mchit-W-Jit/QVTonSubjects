@@ -255,6 +255,12 @@ def get_json_path(riwaya, reciter, sura):
             json_path = f"{base_dir}/{sura}/hafs_husari{prefix}"
         else:
             pass
+    elif "Qalon" == riwaya:
+        base_dir = "./02 - Qalon A'n Nafi' - قالون عن نافع"
+        if "Huthifi" == reciter:
+            json_path = f"{base_dir}/{sura}/qalon_huthifi{prefix}"
+        else:
+            pass
     else:
         pass
     return json_path
@@ -360,7 +366,7 @@ if __name__ == "__main__":
         #["007_Al-A'raf_الأعراف", 62],
         #["008_Al-Anfal_الأنفال", 31],
         #["009_At-Tawbah_التوبة", 51],
-        ["010_Yunus_يونس", 32],
+        #["010_Yunus_يونس", 32],
         #["011_Hud_هود", 27],
         #["012_Yusuf_يوسف", 31],
         #["013_Ar-Ra'd_الرعد", 15],
@@ -372,7 +378,7 @@ if __name__ == "__main__":
         #["019_Maryam_مريم", 19],
         #["020_Taha_طه", 27],
         #["021_Al-Anbiya'_الأنبياء", 32],
-        ["022_Al-Hajj_الحج", 28],
+        #["022_Al-Hajj_الحج", 28],
         #["023_Al-Mu'minoon_المؤمنون", 23],
         #["024_An-Nur_النور", 23],
         #["025_Al-Furqan_الفرقان", 16],
@@ -434,15 +440,15 @@ if __name__ == "__main__":
         ["081_At-Takwir_التكوير", 3],
         ["082_Infitar_الإنفطار", 3],
         ["083_Al-Mutaffifin_المطففين", 6],
-        ["084_Al-Inshiqaq_الانشقاق", 3],
-        ["085_Al-Buruj_البروج", 4],
-        ["086_At-Tariq_الطارق", 2],
-        ["087_Al-A'la_الأعلى", 4],
-        ["088_Al-Ghashiyah_الغاشية", 3],
-        ["089_Al-Fajr_الفجر", 4],
-        ["090_Al-Balad_البلد", 3],
-        ["091_Ash-Shams_الشمس", 2],
-        ["092_Al-Layl_الليل", 4],
+        #["084_Al-Inshiqaq_الانشقاق", 3],
+        #["085_Al-Buruj_البروج", 4],
+        #["086_At-Tariq_الطارق", 2],
+        #["087_Al-A'la_الأعلى", 4],
+        #["088_Al-Ghashiyah_الغاشية", 3],
+        #["089_Al-Fajr_الفجر", 4],
+        #["090_Al-Balad_البلد", 3],
+        #["091_Ash-Shams_الشمس", 2],
+        #["092_Al-Layl_الليل", 4],
         #["093_Ad-Duha_الضحى", 1],
         #["094_Ash-Sharh_الشرح", 1],
         #["095_At-Tin_التين", 1],
@@ -470,4 +476,5 @@ if __name__ == "__main__":
     # Call the trim function with the provided JSON file path
     # generate_mp3s_with_1_section(Surat_dict, "Hafs", "Husari")
     # generate_mp3s_with_1_section(Surat_dict, "Qalon", "Huthifi")
-    generate_mp3s(Surat_dict, "Hafs", "Husari")
+    #generate_mp3s(Surat_dict, "Hafs", "Husari")
+    generate_mp3s(Surat_dict, "Qalon", "Huthifi")
