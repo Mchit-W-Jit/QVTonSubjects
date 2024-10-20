@@ -198,7 +198,7 @@ def generate_mp3s(diction, riwaya, reciter):
             try:
                 # Trim the downloaded MP3 file using ffmpeg
                 os.system(ffmpeg_command)
-                #subprocess.run(ffmpeg_command, check=True)
+                # subprocess.run(ffmpeg_command, check=True)
                 print(f"Trimmed MP3 saved as {filename}")
             except subprocess.CalledProcessError as e:
                 print(f"Error trimming MP3: {e}")
@@ -217,6 +217,7 @@ def get_mp3_paths(riwaya, reciter):
     Returns:
         _type_: _description_
     """
+    base_url = ""
     base_dir = "./build/"
     if "Hafs" == riwaya:
         base_dir += "01-Hafs/"
@@ -248,6 +249,7 @@ def get_json_path(riwaya, reciter, sura):
     Returns:
         _type_: _description_
     """
+    json_path = ""
     prefix = f"_{sura[:3]}.json"
     if "Hafs" == riwaya:
         base_dir = "./01 - Hafs A'n Assem - حفص عن عاصم"
@@ -267,14 +269,25 @@ def get_json_path(riwaya, reciter, sura):
 
 
 def get_thumbnail_and_description(riwaya, sura, section):
+    """Returns the path to the thumbnail and description for a given Quran surah.
+
+    Args:
+        riwaya (str): The name of the riwaya (e.g., "Hafs").
+        sura (str): The sura number.
+        section (str): The section of the sura.
+
+    Returns:
+        str: Path to the thumbnail and description. 
+    """
+    thumbnail = ""
     if "Hafs" == riwaya:
         path = "01 - Hafs A'n Assem - حفص عن عاصم/"
+        path += f"{sura}/{section}/{section}/."
+        thumbnail = path + "jpg"
+        text = path + "txt"
+        print(f"text {text}")
     else:
         pass
-    path += f"{sura}/{section}/{section}/."
-    thumbnail = path + "jpg"
-    text = path + "txt"
-    print(f"text {text}")
 
     try:
         with open(text, "r", encoding="utf-8") as file:
