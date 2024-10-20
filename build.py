@@ -198,7 +198,7 @@ def generate_mp3s(diction, riwaya, reciter):
             try:
                 # Trim the downloaded MP3 file using ffmpeg
                 os.system(ffmpeg_command)
-                #subprocess.run(ffmpeg_command, check=True)
+                # subprocess.run(ffmpeg_command, check=True)
                 print(f"Trimmed MP3 saved as {filename}")
             except subprocess.CalledProcessError as e:
                 print(f"Error trimming MP3: {e}")
@@ -217,12 +217,20 @@ def get_mp3_paths(riwaya, reciter):
     Returns:
         _type_: _description_
     """
+    base_url = ""
     base_dir = "./build/"
     if "Hafs" == riwaya:
-        base_dir += "01/"
+        base_dir += "01-Hafs/"
         if "Husari" == reciter:
             base_dir += "Mahmoud Khalil Al-Hussary/"
             base_url = "https://server13.mp3quran.net/husr/"
+        else:
+            pass
+    elif "Qalon" == riwaya:
+        base_dir += "02-Qalon/"
+        if "Huthifi" == reciter:
+            base_dir += "Ali Alhuthaifi/"
+            base_url = "https://server9.mp3quran.net/huthifi_qalon/"
         else:
             pass
     else:
@@ -241,11 +249,18 @@ def get_json_path(riwaya, reciter, sura):
     Returns:
         _type_: _description_
     """
+    json_path = ""
     prefix = f"_{sura[:3]}.json"
     if "Hafs" == riwaya:
         base_dir = "./01 - Hafs A'n Assem - حفص عن عاصم"
         if "Husari" == reciter:
             json_path = f"{base_dir}/{sura}/hafs_husari{prefix}"
+        else:
+            pass
+    elif "Qalon" == riwaya:
+        base_dir = "./02 - Qalon A'n Nafi' - قالون عن نافع"
+        if "Huthifi" == reciter:
+            json_path = f"{base_dir}/{sura}/qalon_huthifi{prefix}"
         else:
             pass
     else:
@@ -254,14 +269,25 @@ def get_json_path(riwaya, reciter, sura):
 
 
 def get_thumbnail_and_description(riwaya, sura, section):
+    """Returns the path to the thumbnail and description for a given Quran surah.
+
+    Args:
+        riwaya (str): The name of the riwaya (e.g., "Hafs").
+        sura (str): The sura number.
+        section (str): The section of the sura.
+
+    Returns:
+        str: Path to the thumbnail and description. 
+    """
+    thumbnail = ""
     if "Hafs" == riwaya:
         path = "01 - Hafs A'n Assem - حفص عن عاصم/"
+        path += f"{sura}/{section}/{section}/."
+        thumbnail = path + "jpg"
+        text = path + "txt"
+        print(f"text {text}")
     else:
         pass
-    path += f"{sura}/{section}/{section}/."
-    thumbnail = path + "jpg"
-    text = path + "txt"
-    print(f"text {text}")
 
     try:
         with open(text, "r", encoding="utf-8") as file:
@@ -344,7 +370,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     Surat_dict = [
-        ["001_Al-Fatiha_الفاتحة", 2],
+        #["001_Al-Fatiha_الفاتحة", 2],
         #["002_Al-Baqarah_البقرة", 114],
         #["003_Al-Imran_آل عمران", 68],
         #["004_An-Nisaa'_النساء", 73],
@@ -418,34 +444,34 @@ if __name__ == "__main__":
         #["072_Al-Jinn_الجن", 5],
         #["073_Al-Muzzammil_المزمل", 4],
         #["074_Al-Mudaththir_المدثر", 7],
-        #["075_Al-Qiyama_القيامة", 5],
-        #["076_Al-Insan_الإنسان", 8],
-        #["077_Al-Mursalat_المرسلات", 7],
-        ["078_An-Nabaa'_النبأ", 5],
-        ["079_An-Nazi'at_النازعات", 6],
-        ["080_Abasa_عبس", 4],
-        ["081_At-Takwir_التكوير", 3],
-        ["082_Infitar_الإنفطار", 3],
-        ["083_Al-Mutaffifin_المطففين", 6],
-        ["084_Al-Inshiqaq_الانشقاق", 3],
-        ["085_Al-Buruj_البروج", 4],
-        ["086_At-Tariq_الطارق", 2],
-        ["087_Al-A'la_الأعلى", 4],
-        ["088_Al-Ghashiyah_الغاشية", 3],
-        ["089_Al-Fajr_الفجر", 4],
-        ["090_Al-Balad_البلد", 3],
-        ["091_Ash-Shams_الشمس", 2],
-        ["092_Al-Layl_الليل", 4],
-        #["093_Ad-Duha_الضحى", 1],
-        #["094_Ash-Sharh_الشرح", 1],
-        #["095_At-Tin_التين", 1],
-        ["096_Al-Alaq_العلق", 3],
+        ##["075_Al-Qiyama_القيامة", 5],
+        ##["076_Al-Insan_الإنسان", 8],
+        ##["077_Al-Mursalat_المرسلات", 7],
+        #["078_An-Nabaa'_النبأ", 6],
+        #["079_An-Nazi'at_النازعات", 6],
+        #["080_Abasa_عبس", 4],
+        #["081_At-Takwir_التكوير", 3],
+        #["082_Infitar_الإنفطار", 4],
+        #["083_Al-Mutaffifin_المطففين", 4],
+        ["084_Al-Inshiqaq_الانشقاق ", 4],
+        #["085_Al-Buruj_البروج", 4],
+        #["086_At-Tariq_الطارق", 3],
+        #["087_Al-A'la_الأعلى", 3],
+        #["088_Al-Ghashiyah_الغاشية", 4],
+        #["089_Al-Fajr_الفجر", 3],
+        #["090_Al-Balad_البلد", 3],
+        #["091_Ash-Shams_الشمس", 2],
+        #["092_Al-Layl_الليل", 3],
+        #["093_Ad-Duha_الضحى", 2],
+        #["094_Ash-Sharh_الشرح", 2],
+        #["095_At-Tin_التين", 2],
+        #["096_Al-Alaq_العلق", 3],
         #["097_Al-Qadr_القدر", 1],
-        ["098_Al-Bayyinah_البينة", 3],
+        #["098_Al-Bayyinah_البينة", 3],
         #["099_Az-Zalzalah_الزلزلة", 1],
-        ["100_Al-Adiyat_العاديات", 2],
-        #["101_Al-Qariah_القارعة", 1],
-        #["102_At-Takathur_التكاثر", 1],
+        #["100_Al-Adiyat_العاديات", 2],
+        #["101_Al-Qariah_القارعة", 3],
+        #["102_At-Takathur_التكاثر", 2],
         #["103_Al-Asr_العصر", 1],
         #["104_Al-Humazah_الهمزة", 1],
         #["105_Al-Fil_الفيل", 1],
@@ -462,4 +488,6 @@ if __name__ == "__main__":
 
     # Call the trim function with the provided JSON file path
     # generate_mp3s_with_1_section(Surat_dict, "Hafs", "Husari")
-    generate_mp3s(Surat_dict, "Hafs", "Husari")
+    #generate_mp3s_with_1_section(Surat_dict, "Qalon", "Huthifi")
+    #generate_mp3s(Surat_dict, "Hafs", "Husari")
+    generate_mp3s(Surat_dict, "Qalon", "Huthifi")
